@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>學道 (학도) — 배움을 잇고, 졸업으로 향하는 길</title>
+<meta name="description" content="현재 이수 상태와 남은 졸업 요건을 확인하고, 학기별 수강 계획을 세우는 졸업 여정 도우미">
+
+<!-- 제목: 마루부리(네이버) · 한자: Noto Serif KR · 본문: Pretendard -->
+<link rel="stylesheet" href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="css/hakdo.css?v=3">
+<link rel="stylesheet" href="css/app.css?v=3">
+</head>
+<body>
+<a class="skip" href="#content">본문으로 건너뛰기</a>
+<div id="road" aria-hidden="true"></div>
+
+<header class="site-head">
+  <div class="bar">
+    <a class="logo" href="#/" aria-label="學道 학도 — 시작"><b>學道</b><span>학도</span></a>
+    <nav class="main-nav" aria-label="주요 메뉴">
+      <a href="#/" data-nav="landing">시작</a>
+      <a href="#/register" data-nav="register">이수 내역</a>
+      <a href="#/status" data-nav="status">나의 현재 위치</a>
+      <a href="#/journey" data-nav="journey">졸업 여정</a>
+    </nav>
+    <div class="bar-r">
+      <span class="saved" id="save-state" aria-live="polite"></span>
+      <a class="btn-ghost" href="#/register">이수 내역 수정</a>
+    </div>
+  </div>
+</header>
+
+<!-- ───────── 시작 화면 ───────── -->
+<div id="landing">
+<main id="top">
+  <section class="hero" data-way="hero">
+    <div class="wrap">
+      <div class="verse" aria-label="학이시습지 — 배우고 때때로 익히니">學而時習之<small>배우고 때때로 익히니</small></div>
+      <div class="hero-txt" data-block>
+        <div class="kicker reveal"><span class="sq"></span>學道 · 배움을 잇고, 졸업으로 향하는 길</div>
+        <h1 class="reveal">당신의 배움이,<br>하나의 <em>길</em>이<br>되도록.</h1>
+        <p class="lead reveal">지금까지 들은 과목으로 남은 졸업 요건을 확인하고,<br>졸업까지의 학기를 한 걸음씩 설계하세요.</p>
+        <div class="actions reveal">
+          <a class="btn" href="#/register" data-act="start">나의 졸업 여정 만들기
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          <button class="link" type="button" data-act="sample">샘플 체험</button>
+          <button class="link" type="button" data-act="resume" id="resume-btn" hidden>이어보기</button>
+        </div>
+        <div class="meta reveal">
+          <span class="chip"><i></i>명지대학교 자연캠퍼스 컴퓨터공학과 2023학번</span>
+          <span>졸업 기준 미검증 · 샘플 데이터로 시연</span>
+        </div>
+      </div>
+      <div class="scroll-hint">길을 따라 내려가기</div>
+    </div>
+  </section>
+
+  <section class="step r" id="s1" data-way="step">
+    <div class="wrap">
+      <article class="card reveal" data-block>
+        <div class="no"><span>첫 번째 걸음</span><span>壹</span></div>
+        <h2>현재를 확인하고</h2>
+        <p>들은 과목을 고르면 총학점과 영역별 부족 학점, 아직 듣지 않은 필수 과목을 입력 내역 기준으로 보여드려요.</p>
+        <div class="demo" aria-label="샘플 화면">
+          <div class="gauge-top"><span class="big">51<small>/ 130학점 (샘플)</small></span><span class="demo-tag">샘플</span></div>
+          <div class="gauge"><span class="done" style="width:39%"></span><span class="plan" style="width:10%"></span></div>
+          <div class="legend"><span class="l1"><b></b>이수 완료</span><span class="l2"><b></b>이번 학기 수강 중</span></div>
+          <div class="short">전공필수 5과목 남음 — 운영체제, 데이터베이스 외</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="step l" id="s2" data-way="step">
+    <div class="wrap">
+      <article class="card reveal" data-block>
+        <div class="no"><span>두 번째 걸음</span><span>貳</span></div>
+        <h2>다음 학기를 고르고</h2>
+        <p>이미 들은 과목은 빼고, 선수과목·개설 학기·희망 학점을 확인해 학기별로 나눠 추천해요. 추천 이유도 함께 알려드려요.</p>
+        <div class="demo" aria-label="샘플 화면">
+          <div class="courses">
+            <span class="course sel">운영체제 <em>3</em></span>
+            <span class="course sel">데이터베이스 <em>3</em></span>
+            <span class="course">소프트웨어공학 <em>3</em></span>
+            <span class="course">인공지능 <em>3</em></span>
+            <span class="course dash">+ 과목 추가</span>
+          </div>
+          <p class="demo-note">샘플 과목 · 좌석과 시간표는 조회하지 않아요</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="step r" id="s3" data-way="step">
+    <div class="wrap">
+      <article class="card reveal" data-block>
+        <div class="no"><span>세 번째 걸음</span><span>參</span></div>
+        <h2>졸업까지 이어가세요</h2>
+        <p>과목을 다른 학기로 옮기거나 빼면 남은 요건과 조건 충돌을 바로 다시 계산해요. 계획은 이 기기의 브라우저에 저장돼요.</p>
+        <div class="demo" aria-label="샘플 화면">
+          <div class="terms">
+            <div class="term">3-1<b>18학점</b></div>
+            <div class="term p">3-2<b>18학점</b></div>
+            <div class="term p">4-1<b>18학점</b></div>
+            <div class="term g">4-2<b>12학점</b></div>
+          </div>
+          <p class="demo-note">샘플 계획 · 예상 개설 기준</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="finale" data-way="end">
+    <div class="wrap reveal">
+      <div class="seal" aria-hidden="true"><span>學</span><span>道</span><span>之</span><span>印</span></div>
+      <h2>길의 끝에서,<br>다음 길이 시작됩니다.</h2>
+      <p>한 학기, 한 과목이 모여 하나의 길이 됩니다.</p>
+      <a class="btn" href="#/register" data-act="start">나의 졸업 여정 만들기
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-l">
+      <div><b>學道</b><span>배움을 잇고, 졸업으로 향하는 길</span></div>
+      <div>회원가입·학교 로그인 없이 이 기기의 브라우저에만 저장해요 · 공식 졸업 판정이 아니에요</div>
+    </div>
+    <div>샘플 기준 데이터 (DEMO) &nbsp;|&nbsp; © 2026 學道 HAKDO</div>
+  </div>
+</footer>
+</div>
+
+<!-- ───────── 앱 화면 ───────── -->
+<div id="app" hidden>
+  <div id="banner"></div>
+  <main id="content" tabindex="-1"></main>
+  <footer class="app-foot">
+    <div class="wrap">
+      <span>學道 · 입력 내역 기준 충족 현황이며 공식 졸업 판정이 아니에요.</span>
+      <button class="link-btn" type="button" data-act="wipe">이 기기에서 내 데이터 삭제</button>
+    </div>
+  </footer>
+</div>
+
+<!-- 패널 · 확인창 · 로딩 -->
+<div id="drawer" class="drawer" hidden>
+  <div class="drawer-bg" data-act="close-drawer"></div>
+  <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title" tabindex="-1"></aside>
+</div>
+<div id="modal" class="modal" hidden>
+  <div class="modal-box" role="alertdialog" aria-modal="true" aria-labelledby="modal-msg">
+    <p id="modal-msg"></p>
+    <div class="modal-act"><button class="btn-ghost" type="button" data-modal="no">취소</button><button class="btn sm" type="button" data-modal="yes">확인</button></div>
+  </div>
+</div>
+<div id="loading" class="loading" hidden role="status"><span class="ink-dot"></span>졸업까지의 여정을 정리하고 있어요</div>
+
+<!-- 데이터 → 계산 → 저장 → 화면 (분리) -->
+<script src="js/data.sample.js?v=3"></script>
+<script src="js/engine.js?v=3"></script>
+<script src="js/store.js?v=3"></script>
+<script src="js/ink-line.js?v=3"></script>
+<script src="js/ink-road.js?v=3"></script>
+<script src="js/app.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+/* 學道 — 스타일 (시작 화면 + 앱 화면) */
+:root{
+  --paper:#FFFFFF;
+  --ink:#111111;
+  --ink-2:#2b2b2b;
+  --muted:#5a5a57;
+  --subtle:#7a7973;
+  --line:#E6E6E6;
+  --control:#767676;
+  --seal:#A23A2C;
+  --serif:"MaruBuri","Noto Serif KR","AppleMyungjo",serif;
+  --hanja:"Noto Serif KR","MaruBuri",serif;
+  --sans:"Pretendard Variable","Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+  --max:75rem;
+}
+*{box-sizing:border-box;word-break:keep-all;overflow-wrap:break-word}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  letter-spacing:-0.01em;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+  overflow-x:hidden;
+}
+::selection{background:#111;color:#fff}
+a{color:inherit;text-decoration:none}
+
+/* 한지 질감 */
+
+/* 배경 전체를 가로지르는 길 */
+#road{position:absolute;left:0;top:0;width:100%;z-index:1;pointer-events:none;overflow:hidden;--rv:0px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 calc(var(--rv) - 36px),transparent var(--rv));
+          mask-image:linear-gradient(to bottom,#000 calc(var(--rv) - 36px),transparent var(--rv))}
+
+/* ───────── Header ───────── */
+.site-head{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(255,255,255,.86);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.bar{height:64px;max-width:var(--max);margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.logo{display:flex;align-items:baseline;gap:.5rem}
+.logo b{font-family:var(--hanja);font-weight:700;font-size:23px;letter-spacing:-.02em}
+.logo span{font-size:12px;color:var(--subtle);letter-spacing:.12em}
+.main-nav{display:flex;gap:2.25rem}
+.main-nav a{font-size:14px;color:var(--muted);padding:4px 0;border-bottom:1.5px solid transparent;transition:color .2s,border-color .2s}
+.main-nav a:hover{color:var(--ink)}
+.main-nav a.on{color:var(--ink);font-weight:600;border-color:var(--ink)}
+.bar-r{display:flex;align-items:center;gap:1rem;font-size:12px;color:var(--muted)}
+.saved{display:flex;align-items:center;gap:6px}
+.saved i{width:6px;height:6px;background:var(--ink);display:inline-block}
+.btn-ghost{display:inline-flex;align-items:center;height:34px;padding:0 14px;border:1px solid var(--control);border-radius:2px;font-size:12.5px;font-weight:500;color:var(--ink);background:rgba(255,255,255,.6);transition:background .2s,border-color .2s}
+.btn-ghost:hover{background:#fff;border-color:var(--ink)}
+
+main{position:relative;z-index:2}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 2rem;position:relative}
+
+/* ───────── Hero ───────── */
+.hero{min-height:100vh;padding-top:64px;display:flex;align-items:center}
+.hero .wrap{width:100%;display:flex;gap:3rem;align-items:flex-start}
+.verse{
+  writing-mode:vertical-rl;font-family:var(--hanja);font-weight:500;
+  font-size:15px;letter-spacing:.5em;color:var(--subtle);
+  padding-top:.5rem;border-right:1px solid var(--line);padding-right:1rem;
+  display:flex;gap:1.2rem;white-space:nowrap;
+}
+.verse small{font-family:var(--serif);font-size:12px;letter-spacing:.3em;color:#9a988f}
+.hero-txt{max-width:40rem;padding:4rem 0 6rem}
+.kicker{display:flex;align-items:center;gap:.6rem;margin-bottom:2rem;font-size:12.5px;color:var(--subtle);letter-spacing:.06em}
+.kicker .sq{width:6px;height:6px;background:var(--ink)}
+.kicker .en{font-size:10.5px;letter-spacing:.24em;padding:3px 8px;border:1px solid var(--line);background:rgba(255,255,255,.6)}
+h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(42px,6.2vw,80px);line-height:1.22;letter-spacing:-.035em;
+  margin:0 0 1.75rem;color:var(--ink);
+}
+h1 em{font-style:normal;position:relative;white-space:nowrap}
+h1 em::after{ /* 붓 밑줄 */
+  content:"";position:absolute;left:-12%;right:-12%;bottom:.02em;height:.32em;z-index:-1;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'><path d='M2 13 C60 6 130 9 200 8 S290 11 298 7 L297 13 C240 16 140 15 60 17 S8 17 2 13Z' fill='%23111' fill-opacity='.13'/></svg>") no-repeat center/100% 100%;
+}
+.lead{font-size:clamp(16px,1.4vw,18.5px);color:var(--muted);line-height:1.8;max-width:30rem;margin:0 0 2.75rem}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem;margin-bottom:2.5rem}
+.btn{display:inline-flex;align-items:center;gap:.7rem;height:52px;padding:0 1.6rem;background:var(--ink);color:#fff;border-radius:2px;font-size:15px;font-weight:600;letter-spacing:-.01em;transition:background .2s}
+.btn:hover{background:var(--ink-2)}
+.btn svg{transition:transform .2s}.btn:hover svg{transform:translateX(3px)}
+.link{font-size:14.5px;font-weight:500;color:var(--muted);border-bottom:1px solid var(--control);padding-bottom:2px;transition:color .2s,border-color .2s}
+.link:hover{color:var(--ink);border-color:var(--ink)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem;font-size:12.5px;color:var(--subtle)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:2px;color:var(--muted);font-weight:500}
+.chip i{width:5px;height:5px;background:var(--ink);display:inline-block}
+.scroll-hint{position:absolute;left:2rem;bottom:-3.5rem;display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-size:12px;letter-spacing:.3em;color:var(--subtle)}
+.scroll-hint::before{content:"";width:40px;height:1px;background:var(--subtle)}
+
+/* ───────── Steps (길 위의 블럭) ───────── */
+.step{min-height:88vh;display:flex;align-items:center;padding:4rem 0}
+.step .wrap{width:100%;display:flex}
+.step.r .wrap{justify-content:flex-end}
+.step.l .wrap{justify-content:flex-start}
+.card{
+  width:min(100%,32rem);position:relative;
+  background:#fff;
+  border:1px solid var(--line);border-radius:2px;
+  padding:2.5rem 2.5rem 2.25rem;
+  transition:border-color .3s,transform .3s;
+}
+.card:hover{border-color:var(--ink)}
+.card .no{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.5rem}
+.card .no span:first-child{font-family:var(--serif);font-size:13px;color:var(--subtle);letter-spacing:.14em}
+.card .no span:last-child{font-family:var(--hanja);font-size:44px;line-height:1;color:var(--ink);opacity:.9}
+.card h2{font-family:var(--serif);font-weight:700;font-size:clamp(26px,2.6vw,34px);line-height:1.3;letter-spacing:-.03em;margin:0 0 .9rem}
+.card p{color:var(--muted);font-size:15px;line-height:1.8;margin:0 0 1.75rem}
+.card .demo{border-top:1px solid var(--line);padding-top:1.4rem}
+
+/* demo: 학점 게이지 */
+.gauge-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:.7rem}
+.big{font-family:var(--sans);font-weight:700;font-size:40px;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1}
+.big small{font-size:14px;font-weight:500;color:var(--subtle);margin-left:4px;letter-spacing:0}
+.gauge{height:8px;border:1px solid var(--line);background:#fff;border-radius:2px;display:flex;overflow:hidden}
+.gauge .done{width:68%;background:var(--ink)}
+.gauge .plan{width:12%;background:repeating-linear-gradient(45deg,#fff 0 3px,#111 3px 4px)}
+.legend{display:flex;gap:1rem;margin-top:.7rem;font-size:12px;color:var(--subtle)}
+.legend b{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:-1px;border:1px solid #111}
+.legend .l1 b{background:#111}.legend .l2 b{background:repeating-linear-gradient(45deg,#fff 0 2px,#111 2px 3px)}
+.short{margin-top:.9rem;font-size:13px;color:var(--ink);padding-left:10px;border-left:3px solid var(--ink)}
+
+/* demo: 과목 칩 */
+.courses{display:flex;flex-wrap:wrap;gap:8px}
+.course{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px;border:1px solid var(--line);border-radius:2px;font-size:13px;background:#fff}
+.course em{font-style:normal;font-size:11px;color:var(--subtle);font-variant-numeric:tabular-nums}
+.course.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
+.course.sel em{color:#bdbdbd}
+.course.dash{border-style:dashed;border-color:var(--control);color:var(--muted);background:transparent}
+
+/* demo: 학기 타임라인 */
+.terms{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.term{border:1px solid var(--line);background:#fff;padding:.6rem .7rem;font-size:12px;color:var(--muted)}
+.term b{display:block;font-size:15px;color:var(--ink);font-variant-numeric:tabular-nums;font-weight:600}
+.term.p{background:repeating-linear-gradient(45deg,#fff 0 4px,#f1efe9 4px 6px)}
+.term.g{border-color:var(--ink);border-width:1px 1px 1px 3px}
+
+/* ───────── 끝: 졸업 ───────── */
+.finale{min-height:96vh;display:flex;align-items:flex-start;justify-content:center;text-align:center;padding:22vh 0 8rem}
+.finale .wrap{display:flex;flex-direction:column;align-items:center}
+.seal{
+  width:58px;height:58px;border:2px solid var(--seal);color:var(--seal);border-radius:4px;
+  font-family:var(--hanja);font-weight:700;font-size:17px;line-height:1.05;
+  display:grid;grid-template-columns:1fr 1fr;place-items:center;padding:6px;margin-bottom:2rem;
+  transform:rotate(-3deg);opacity:.9;background:rgba(255,255,255,.8)
+}
+.finale h2{font-family:var(--serif);font-weight:700;font-size:clamp(34px,4.6vw,60px);line-height:1.25;letter-spacing:-.035em;margin:0 0 1.25rem;padding:0 .4em;background:radial-gradient(closest-side,rgba(255,255,255,.95),rgba(255,255,255,.75) 70%,rgba(255,255,255,0))}
+.finale p{color:var(--muted);font-size:16.5px;line-height:1.8;margin:0 0 2.5rem;background:rgba(255,255,255,.85);padding:0 .5em}
+
+#landing footer{position:relative;z-index:2;border-top:1px solid var(--line);background:rgba(255,255,255,.92)}
+#landing footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding-top:2rem;padding-bottom:2rem;font-size:12px;color:var(--subtle)}
+#landing footer .f-l{display:flex;flex-direction:column;gap:2px}
+#landing footer .f-l div{display:flex;align-items:baseline;gap:.5rem}
+#landing footer .f-l b{font-family:var(--hanja);font-size:16px;color:var(--ink)}
+#landing footer .f-l span{font-family:var(--serif);color:var(--muted)}
+
+/* 등장 */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:1023px){
+  .verse{display:none}
+}
+@media (max-width:767px){
+  .bar,.wrap{padding-left:1.25rem;padding-right:1.25rem}
+  .logo span{display:none}
+  .hero-txt{padding:3rem 0 5rem}
+  .step{min-height:auto;padding:5rem 0}
+  .card{padding:1.75rem 1.5rem}
+  .terms{grid-template-columns:repeat(2,1fr)}
+  .scroll-hint{left:1.25rem}
+}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
